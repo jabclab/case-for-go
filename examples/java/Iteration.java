@@ -7,9 +7,9 @@ public class Iteration{
 	static final List<String> values = new LinkedList<String>();
 
 	static {
-			values.add("hello");
-			values.add("tech");
-			values.add("wednesday");
+		values.add("hello");
+		values.add("tech");
+		values.add("wednesday");
 	}
 
 	public static void main(String[] args) {

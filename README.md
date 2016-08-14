@@ -11,4 +11,4 @@ $ present
 $ open http://127.0.0.1:3999/case_for_go.slide#1
 ```
 
-This is also hosted via Heroku here.
+This is also available via https://talks.godoc.org/github.com/jabclab/case-for-go/case_for_go.slide#1.

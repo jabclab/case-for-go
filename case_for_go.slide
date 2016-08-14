@@ -1,0 +1,122 @@
+Collect £200
+A case for Go
+17 Aug 2016
+
+Jake Clarkson
+CTO, Digital Animal
+jake@digitalanimal.com
+@jabclab
+
+# https://talks.golang.org/2016/applicative.slide#19
+
+* Overview
+
+1. What is Go?
+2. Why use Go?
+3. Where to go to use Go
+
+* What is Go?
+
+- "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
+- "...a concurrent, garbage-collected language with fast compilation"
+: Robert Griesemer, Rob Pike and Ken Thompson started sketching the goals for a new language on the white board on September 21, 2007
+: Go became a public open source project on November 10, 2009
+- Now on version 1.6 (1.7 is coming soon)
+: Yearly (Feb 1 - Aug 1) release cycle https://github.com/golang/go/wiki/Go-Release-Cycle
+- Heavy focus on speed and simplicity
+
+: Responding to No major systems language has emerged in over a decade, but over that time the computing landscape has changed tremendously
+: 1. Computers are enormously quicker but software development is not faster
+: 2. There is a growing rebellion against cumbersome type systems like those of Java and C++, pushing people towards dynamically typed languages such as Python and JavaScript
+: 3. The emergence of multicore computers has generated worry and confusion
+: Simplicity should include...
+
+* via https://talks.golang.org/2016/applicative.slide#13
+
+: Sameer Ajmani, Manager Go team @ Google - 2016
+
+.image go_positioning.svg
+
+* Why did I get into it?
+
+- Moving from Java -> Node.js = responding to the (lack of) speed in my Java development workflow
+- Node.js -> Go = getting the best of both worlds
+
+- "Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language with the efficiency and safety of a statically typed, compiled language" -  https://golang.org/doc/faq#creating_a_new_language
+
+- Influential members of the Node.js community were transitioning to Go
+
+* Who uses it?
+
+- Google
+- Uber
+- BBC
+- Docker
+- Kubernetes
+- etcd
+
+More here https://github.com/golang/go/wiki/GoUsers
+
+- Also supported on PaaS/Continous Integration providers
+
+* Speed
+
+- Unit + integration tests for our HTTP services ~1.5s
+- Compiling ~3.5s
+
+* Simplicity
+
+- Go provides only one choice for each operational task
+- By having mutiple ways to do things the programmer has to attempt to tread the same decision tree every time they face the task
+- Consider simple array iteration:
+
+.play iteration.go
+
+: Rob Pike observed in 2010 that many languages were converging, they were all
+: adding features and becoming indistinguishable from each other. Consider
+: ES6 / ES2015 in JavaScript.
+
+* JavaScript
+
+.code examples/javascript/iteration.js
+
+* Java
+
+.code examples/main/Iteration.java
+
+* Bash
+
+.code examples/bash/iteration.sh
+
+* Tooling
+
+- go fmt (consider this vs. `eslint`, `shellcheck`, `rubocop` etc.)
+- go lint
+- errcheck
+
+TODO: go lint example
+
+: Compare `go fmt` to JS, especially OSS contributions
+: `go fmt` not everyone agrees but having a convention means consistency, which
+: is what is prized over everything else
+
+* How can you get into it?
+
+- Go weekly newsletter http://golangweekly.com/
+- Golang UK - tomorrow!
+- Twitter - @golang, @enneff, @bradfitz
+- #go-nuts on IRC
+- https://tour.golang.org/welcome/1
+- https://play.golang.org/
+
+More https://golang.org/help/
+
+* Resources
+
+- "An introduction to programming in Go" - Caleb Doxey https://www.golang-book.com/books/intro
+- "Public Static Void" - Rob Pike https://www.youtube.com/watch?v=5kj5ApnhPAE
+- "Simplicity is Complicated" - Rob Pike https://www.youtube.com/watch?v=rFejpH_tAHM
+- "Concurrency is not Parallelism" - Rob Pike https://www.youtube.com/watch?v=cN_DpYBzKso
+- "The Evolution of Go" - Robert Griesemer https://www.youtube.com/watch?v=0ReKdcpNyQg
+- https://golang.org/doc/faq
+- https://golang.org/doc/effective_go.html

@@ -1,0 +1,8 @@
+{
+	"ImportPath": "github.com/jabclab/case-for-go",
+	"GoVersion": "go1.6.3",
+	"Packages": [
+		"golang.org/x/tools/present"
+	],
+	"Deps": []
+}

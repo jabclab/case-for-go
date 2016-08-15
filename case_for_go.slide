@@ -94,11 +94,10 @@ More here https://github.com/golang/go/wiki/GoUsers
 - go lint
 - errcheck
 
-TODO: go lint example
-
 : Compare `go fmt` to JS, especially OSS contributions
 : `go fmt` not everyone agrees but having a convention means consistency, which
 : is what is prized over everything else
+: Run `go lint` example in Vim
 
 * How can you get into it?
 

@@ -2,7 +2,12 @@
 	"ImportPath": "github.com/jabclab/case-for-go",
 	"GoVersion": "go1.6.3",
 	"Packages": [
-		"golang.org/x/tools/present"
+		"golang.org/x/tools/cmd/present"
 	],
-	"Deps": []
+	"Deps": [
+		{
+			"ImportPath": "golang.org/x/net/websocket",
+			"Rev": "db8e4de5b2d6653f66aea53094624468caad15d2"
+		}
+	]
 }

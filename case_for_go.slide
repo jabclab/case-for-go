@@ -9,27 +9,33 @@ jake@digitalanimal.com
 
 # https://talks.golang.org/2016/applicative.slide#19
 
+* Which language to choose?
+
+.image redmonk_q316_rankings.png
+.caption [[http://redmonk.com/sogrady/2016/07/20/language-rankings-6-16/][Redmonk Language Rankings June 2016]]
+
 * Overview
 
-1. What is Go?
+1. What is Go(lang)?
 2. Why use Go?
-3. Where to go to use Go
+3. Next steps if you want to learn more
 
 * What is Go?
 
 - "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
-- "...a concurrent, garbage-collected language with fast compilation"
 : Robert Griesemer, Rob Pike and Ken Thompson started sketching the goals for a new language on the white board on September 21, 2007
 : Go became a public open source project on November 10, 2009
-- Now on version 1.6 (1.7 is coming soon)
+- "Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language with the efficiency and safety of a statically typed, compiled language" -  https://golang.org/doc/faq#creating_a_new_language
+- Now on version 1.7 (as of this Tuesday)
 : Yearly (Feb 1 - Aug 1) release cycle https://github.com/golang/go/wiki/Go-Release-Cycle
-- Heavy focus on speed and simplicity
+- 19,270 stars / 2,484 forks on GitHub (github.com/golang/go)
 
 : Responding to No major systems language has emerged in over a decade, but over that time the computing landscape has changed tremendously
 : 1. Computers are enormously quicker but software development is not faster
 : 2. There is a growing rebellion against cumbersome type systems like those of Java and C++, pushing people towards dynamically typed languages such as Python and JavaScript
 : 3. The emergence of multicore computers has generated worry and confusion
 : Simplicity should include...
+: http://redmonk.com/sogrady/2016/07/20/language-rankings-6-16/
 
 * via https://talks.golang.org/2016/applicative.slide#13
 
@@ -39,10 +45,9 @@ jake@digitalanimal.com
 
 * Why did I get into it?
 
-- Moving from Java -> Node.js = responding to the (lack of) speed in my Java development workflow
-- Node.js -> Go = getting the best of both worlds
+- Must things be so complex? pass the salt
 
-- "Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language with the efficiency and safety of a statically typed, compiled language" -  https://golang.org/doc/faq#creating_a_new_language
+- Java -> JavaScript -> Node.js -> Go
 
 - Influential members of the Node.js community were transitioning to Go
 
@@ -51,20 +56,37 @@ jake@digitalanimal.com
 - Google
 - Uber
 - BBC
+- Digital Animal ;-)
 - Docker
 - Kubernetes
 - etcd
 
 More here https://github.com/golang/go/wiki/GoUsers
 
-- Also supported on PaaS/Continous Integration providers
+- Good support on PaaS/Continous Integration providers
 
-* Speed
+: Heroku, Google App Engine, CircleCI, Travis
 
-- Unit + integration tests for our HTTP services ~1.5s
-- Compiling ~3.5s
+* Components of a (simplified!) typical development workflow
 
-* Simplicity
+1. Develop
+2. Test
+3. Deploy
+
+: Mention TDD
+: Sub-sections within each of these
+: 2. Develop: problem solving, refinement
+: 3. Test: unit, integration, acceptance, benchmark
+
+* Development
+
+* Steps
+
+1. Write code (conventions, style, linting)
+2. Write tests (TDD, BDD, benchmarking)
+3. Compile
+
+* Conventions
 
 - Go provides only one choice for each operational task
 - By having mutiple ways to do things the programmer has to attempt to tread the same decision tree every time they face the task
@@ -84,20 +106,58 @@ More here https://github.com/golang/go/wiki/GoUsers
 
 .code examples/java/Iteration.java
 
-* Bash
+* Style
 
-.code examples/bash/iteration.sh
-
-* Tooling
-
-- go fmt (consider this vs. `eslint`, `shellcheck`, `rubocop` etc.)
-- go lint
-- errcheck
+- go fmt
 
 : Compare `go fmt` to JS, especially OSS contributions
 : `go fmt` not everyone agrees but having a convention means consistency, which
 : is what is prized over everything else
 : Run `go lint` example in Vim
+
+* Linting
+
+- go lint
+- go vet
+- errcheck
+
+: go lint = Golint differs from govet. Govet is concerned with correctness, whereas golint is concerned with coding style
+: go vet = Vet uses heuristics that do not guarantee all reports are genuine problems, but it can find errors not caught by the compilers. e.g. Printf calls whose arguments do not align with the format string
+
+* Testing
+* Overview
+
+- Tests live in files with a `_test.go` suffix.
+- Benchmarking supported
+- Coverage supported
+- net/httptest very useful for testing web services
+
+: TODO: a modern old language, if C had been written today
+
+* Example test
+
+.code example_unit_test.go
+
+: regex also supported for these (e.g. to run a single test even quicker)
+
+* Running tests
+
+- go test
+- go test -race
+- go test -coverprofile=coverage.out && go tool cover -html=coverage.out
+
+* Deployment
+
+- go build = a statically linked binary
+- Docker a good solution for compiling for multiple architectures
+- https://hub.docker.com/_/golang/
+
+: compilation takes ~1.52
+: build takes ~3.5s
+
+.code examples/cross_compile.sh
+
+: Binaries are relatively large, include the Go runtime along with the run-time type information necessary to support dynamic type checks, reflection, and even panic-time stack traces
 
 * How can you get into it?
 
@@ -107,6 +167,7 @@ More here https://github.com/golang/go/wiki/GoUsers
 - #go-nuts on IRC
 - https://tour.golang.org/welcome/1
 - https://play.golang.org/
+- We're on Broad St. - I'm happy to meet for coffee
 
 More https://golang.org/help/
 

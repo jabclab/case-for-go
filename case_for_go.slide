@@ -22,9 +22,10 @@ jake@digitalanimal.com
 
 - "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software."
 : Robert Griesemer, Rob Pike and Ken Thompson started sketching the goals for a new language on the white board on September 21, 2007
+: Pike = UTF-8 creator (with Thompson)
+: Thompson = Thompson designed and implemented the original Unix operating system
 : Go became a public open source project on November 10, 2009
 - "Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language with the efficiency and safety of a statically typed, compiled language" -  https://golang.org/doc/faq#creating_a_new_language
-- Suitable for modern systems at large scale
 - Now on version 1.7 (as of this Tuesday) - language fixed since 1.0
 : Yearly (Feb 1 - Aug 1) release cycle https://github.com/golang/go/wiki/Go-Release-Cycle
 - 19,270 stars / 2,484 forks on GitHub (github.com/golang/go)
@@ -58,8 +59,12 @@ jake@digitalanimal.com
 - Google
 - Uber
 - BBC
+- Netflix
 - Facebook
 - Digital Animal ;-)
+
+: Uber -> Stochastic flame graph profiler for @golang programs
+: Netflix -> Rend is a high-performance proxy written
 
 More here https://github.com/golang/go/wiki/GoUsers
 
@@ -67,12 +72,6 @@ More here https://github.com/golang/go/wiki/GoUsers
 
 : What are they using it for?
 : Heroku, Google App Engine, CircleCI, Travis
-
-* Components of a (simplified!) typical development workflow
-
-1. Develop
-2. Test
-3. Deploy
 
 : Mention TDD
 : Sub-sections within each of these
@@ -84,12 +83,12 @@ More here https://github.com/golang/go/wiki/GoUsers
 * Conventions
 
 - More language features = more complex
-- "...code is harder to understand simply because it is using a more complex language"
+- "...code is harder to understand simply because it is using a more complex language" (Rob Pike)
 : readability = reliability
 : How to decide which features went in?
 - Consider simple array iteration:
 
-.play iteration.go
+.play examples/go/iteration.go
 
 : Rob Pike observed in 2010 that many languages were converging, they were all
 : adding features and becoming indistinguishable from each other. Consider
@@ -108,15 +107,20 @@ More here https://github.com/golang/go/wiki/GoUsers
 - go fmt
 - "Gofmt's style is no one's favorite, yet gofmt is everyone's favorite."
 
+.code examples/go/gofmt.sh
+
 : Compare `go fmt` to JS, especially OSS contributions
-: `go fmt` not everyone agrees but having a convention means consistency, which
-: is what is prized over everything else
+: Eslint 223 options (crude check on http://eslint.org/docs/rules/)
 : Run `go lint` example in Vim
 
 * Linting
 
 - go lint
+
+.code examples/go/golint.sh
+
 - go vet
+- go fix
 - errcheck
 
 : go lint = Golint differs from govet. Govet is concerned with correctness, whereas golint is concerned with coding style
@@ -125,6 +129,7 @@ More here https://github.com/golang/go/wiki/GoUsers
 * Testing
 * Overview
 
+- A first class citizen
 - Race detection supported
 - Benchmarking supported
 - Coverage supported
@@ -134,6 +139,7 @@ More here https://github.com/golang/go/wiki/GoUsers
 
 * Example test
 
+.code example_main.go
 .code example_unit_test.go
 
 : regex also supported for these (e.g. to run a single test even quicker)
@@ -147,8 +153,7 @@ More here https://github.com/golang/go/wiki/GoUsers
 * Deployment
 
 - go build = a statically linked binary
-- Docker a good solution for compiling for multiple architectures
-- https://hub.docker.com/_/golang/
+- Easy to cross-compile for multiple platforms
 
 : compilation takes ~1.52
 : build takes ~3.5s
@@ -166,7 +171,7 @@ More here https://github.com/golang/go/wiki/GoUsers
 - Golang UK - tomorrow!
 - Twitter - @golang, @enneff, @bradfitz
 - #go-nuts on IRC
-- We're on Broad St. - I'm happy to meet for coffee
+- We're on Broad St. - I'm happy to meet for coffee (plus we're hiring)
 
 More https://golang.org/help/
 
@@ -179,3 +184,8 @@ More https://golang.org/help/
 - "The Evolution of Go" - Robert Griesemer https://www.youtube.com/watch?v=0ReKdcpNyQg
 - https://golang.org/doc/faq
 - https://golang.org/doc/effective_go.html
+
+* These slides
+
+- https://talks.godoc.org/github.com/jabclab/case-for-go/case_for_go.slide#1
+- https://github.com/jabclab/case-for-go

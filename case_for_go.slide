@@ -7,8 +7,6 @@ CTO, Digital Animal
 jake@digitalanimal.com
 @jabclab
 
-# https://talks.golang.org/2016/applicative.slide#19
-
 * Which language to choose?
 
 .image redmonk_q316_rankings.png
@@ -26,7 +24,8 @@ jake@digitalanimal.com
 : Robert Griesemer, Rob Pike and Ken Thompson started sketching the goals for a new language on the white board on September 21, 2007
 : Go became a public open source project on November 10, 2009
 - "Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language with the efficiency and safety of a statically typed, compiled language" -  https://golang.org/doc/faq#creating_a_new_language
-- Now on version 1.7 (as of this Tuesday)
+- Suitable for modern systems at large scale
+- Now on version 1.7 (as of this Tuesday) - language fixed since 1.0
 : Yearly (Feb 1 - Aug 1) release cycle https://github.com/golang/go/wiki/Go-Release-Cycle
 - 19,270 stars / 2,484 forks on GitHub (github.com/golang/go)
 
@@ -43,9 +42,12 @@ jake@digitalanimal.com
 
 .image go_positioning.svg
 
-* Why did I get into it?
+* Why did I get into Go?
 
-- Must things be so complex? pass the salt
+- Must things be so complex?
+
+.image https://imgs.xkcd.com/comics/the_general_problem.png
+.caption [[https://xkcd.com/974/]["The General Problem" - xkcd]]
 
 - Java -> JavaScript -> Node.js -> Go
 
@@ -56,15 +58,14 @@ jake@digitalanimal.com
 - Google
 - Uber
 - BBC
+- Facebook
 - Digital Animal ;-)
-- Docker
-- Kubernetes
-- etcd
 
 More here https://github.com/golang/go/wiki/GoUsers
 
 - Good support on PaaS/Continous Integration providers
 
+: What are they using it for?
 : Heroku, Google App Engine, CircleCI, Travis
 
 * Components of a (simplified!) typical development workflow
@@ -80,16 +81,12 @@ More here https://github.com/golang/go/wiki/GoUsers
 
 * Development
 
-* Steps
-
-1. Write code (conventions, style, linting)
-2. Write tests (TDD, BDD, benchmarking)
-3. Compile
-
 * Conventions
 
-- Go provides only one choice for each operational task
-- By having mutiple ways to do things the programmer has to attempt to tread the same decision tree every time they face the task
+- More language features = more complex
+- "...code is harder to understand simply because it is using a more complex language"
+: readability = reliability
+: How to decide which features went in?
 - Consider simple array iteration:
 
 .play iteration.go
@@ -109,6 +106,7 @@ More here https://github.com/golang/go/wiki/GoUsers
 * Style
 
 - go fmt
+- "Gofmt's style is no one's favorite, yet gofmt is everyone's favorite."
 
 : Compare `go fmt` to JS, especially OSS contributions
 : `go fmt` not everyone agrees but having a convention means consistency, which
@@ -127,7 +125,7 @@ More here https://github.com/golang/go/wiki/GoUsers
 * Testing
 * Overview
 
-- Tests live in files with a `_test.go` suffix.
+- Race detection supported
 - Benchmarking supported
 - Coverage supported
 - net/httptest very useful for testing web services
@@ -159,14 +157,15 @@ More here https://github.com/golang/go/wiki/GoUsers
 
 : Binaries are relatively large, include the Go runtime along with the run-time type information necessary to support dynamic type checks, reflection, and even panic-time stack traces
 
-* How can you get into it?
+* How can you get into Go?
 
+- https://tour.golang.org/welcome/1
+- https://play.golang.org/
+- https://go-proverbs.github.io/
 - Go weekly newsletter http://golangweekly.com/
 - Golang UK - tomorrow!
 - Twitter - @golang, @enneff, @bradfitz
 - #go-nuts on IRC
-- https://tour.golang.org/welcome/1
-- https://play.golang.org/
 - We're on Broad St. - I'm happy to meet for coffee
 
 More https://golang.org/help/
